@@ -98,4 +98,3 @@ public class PM_2_2 {
         System.out.println("timeElapsed:" + timeElapsed);
     }
 }
-6
