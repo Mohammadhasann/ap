@@ -1,5 +1,7 @@
 package Ex.Ex3;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
@@ -94,4 +96,33 @@ public class LM_1_2 {
             e.printStackTrace();
         }
     }
+    public static Booki[] readBook() {
+        Booki[] booki = new Booki[4];
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("books.txt"))) {
+            String line;
+            int index = 0;
+            while ((line = bufferedReader.readLine()) != null && index < booki.length) {
+                String[] data = line.split(",");
+                booki[index++] = new Booki(data[0], data[1], Integer.parseInt(data[2]), Integer.parseInt(data[3]));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return booki;
+    }
+    public static Studenti[] readStudent() {
+        Studenti[] studenti = new Studenti[3];
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("stuents.txt"))) {
+            String line;
+            int index = 0;
+            while ((line = bufferedReader.readLine()) != null && index < studenti.length) {
+                String[] data = line.split(",");
+                studenti[index++] = new Studenti(data[0], data[1], data[2], data[3]);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return studenti;
+    }
+
 }
